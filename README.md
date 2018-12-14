@@ -16,7 +16,7 @@ Lodestone provides variant calls as vcf files. Bushwalk takes the Lodestone outp
 -   Lodestone outputs vcf files in their own 
 
 ## Usage
-
+```
 usage: potplant.py tree [options]
 
 Run PotPlant.py A program to root and collpase branches of zero length.
@@ -35,4 +35,4 @@ optional arguments:
                         forward slash. Eg. /temp/fasta/
   -o [N], --outdir [N]  Output directory. End with a forward slash. Eg.
                         /temp/fasta/; Default to use current directory.
-----------
+```
