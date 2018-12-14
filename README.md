@@ -13,26 +13,32 @@ Lodestone provides variant calls as vcf files. Bushwalk takes the Lodestone outp
 ## Inputs
 ------
 
--   Lodestone outputs vcf files in their own 
+-   Lodestone outputs vcf files in their own directory under the file structure ID/lodestone/
+-   Reference file paired with the vcf file: Needs to be in FASTA format and be only the chromosome
+-   A file containing all the IDs of the samples corresponding to the directories of the Lodestone output. Each sample ID will be on a new line.
 
 ## Usage
 ```
-usage: potplant.py tree [options]
 
-Run PotPlant.py A program to root and collpase branches of zero length.
+usage: bushwalk.py [options] reference ids
+
+Run Bushwalk. A program to parse the output of Lodestone for input into
+snippy-core
 
 positional arguments:
-  FILE                  The tree file in newick format.
+  N                     Provide the reference for snippy [Required]
+  N                     IDs of paired reads files [Required]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -r FILE [FILE ...], --root FILE [FILE ...]
-                        The isolate for rooting the tree.
-  -p PREFIX [PREFIX ...], --prefix PREFIX [PREFIX ...]
-                        The prefix for the output.
   -d [N], --dirpath [N]
-                        Input directory containing the tree. End with a
-                        forward slash. Eg. /temp/fasta/
+                        Input directory of Lodestone results. End with a
+                        forward slash. Eg. /temp/fasta/ [Required]
   -o [N], --outdir [N]  Output directory. End with a forward slash. Eg.
                         /temp/fasta/; Default to use current directory.
+
 ```
+## Output
+Bushwalk will generate:
+- A new VCF file containing only SNV calls
+- A SNV consensus fasta file
