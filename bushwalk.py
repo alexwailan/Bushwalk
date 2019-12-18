@@ -8,7 +8,6 @@
 import os
 import sys
 import gzip
-import pandas
 import argparse
 import pandas as pd
 import numpy as np
@@ -27,8 +26,7 @@ dependencies = [
 'bcftools'
 ]
 
-print()
-print("Checking dependencies mate! \n")
+
 def depend_check(dependencies):
     all_d = []
     for d in dependencies:
@@ -39,6 +37,9 @@ def depend_check(dependencies):
             print("Unable to find %s." %d)
             all_d.append('FALSE')
     return all_d
+
+print()
+print("Checking dependencies mate! \n")
 
 if not 'FALSE' in depend_check(dependencies):
     print("I can see all dependencies! \n")
@@ -53,7 +54,7 @@ else:
 
 def getargv():
     usage = 'bushwalk.py [options] reference ids'
-    description='Run Bushwalk. A program to parse the output of Lodestone for input into snippy-core'
+    description='Run Bushwalk. A program to parse a group of vcfs for input into snippy-core'
     parser = argparse.ArgumentParser(usage=usage, description=description)
 
     parser.add_argument('reference', action="store", help='Provide the reference for snippy [Required]', metavar='N',nargs='?')
@@ -94,10 +95,10 @@ reference=args.reference
 
 ##where do you want the output to go
 
-##if the project directory and output directory don't have a forward slash exit
+##if the project directory and output directory doesn't have a forward slash exit
 if(pdir[-1]!='/'):
   print(pdir[-1])
-  print('\n The project directory should end with a forward slash')
+  print('\n The input directory should end with a forward slash')
   exit()
 
 ##check if the ids are provided individually or in a file. If they are in a file, read the file and get the ids
@@ -108,7 +109,7 @@ idlist=allids.ids.tolist()
 
 #Let your peeps know what is happening. Just a bit of communication.
 print(" ")
-print('Lodestone directory will be: ' + pdir)
+print('Input directory will be: ' + pdir)
 print('Output directory will be: ' + odir)
 print('Using reference file: ' + reference)
 print('Using id csv file: ' + args.ids[0])
@@ -135,7 +136,9 @@ for i in idlist:
         # copy lodestone vcf output into each sample directory
         ######################################################
         
-        p = subprocess.call("cp -r %s %s"%(pdir+i+'/lodestone/'+i+'.vcf.gz',odir+i+'/'), shell=True,    stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        #WILL HAVE TO CHANGE THIS DIRECTORY
+        
+        p = subprocess.call("cp -r %s %s"%(pdir+i+'.vcf.gz', odir+i+'/'), shell=True,    stdout=subprocess.PIPE,stderr=subprocess.PIPE)
         gzip_f = Path(odir+i+'/'+i+'.vcf.gz')
 
         if not os.path.isfile(gzip_f):
