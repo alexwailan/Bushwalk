@@ -1,7 +1,7 @@
 # Bushwalk
 
 ## Introduction
-Lodestone provides variant calls as vcf files. Bushwalk takes the Lodestone output and prepares the data of each sample for input into the snippy-core module of Snippy.  We're going on a bushwalk!
+Sometimes you have variant calls as vcf files. Bushwalk takes the vcf files and prepares the data of each sample for input into the snippy-core module of Snippy.  We're going on a bushwalk!
 
 ## Dependencies
 ------
