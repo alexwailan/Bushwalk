@@ -15,7 +15,7 @@ Sometimes you have variant calls as vcf files. Bushwalk takes the vcf files and 
 
 -   Lodestone outputs vcf files in their own directory under the file structure ID/lodestone/
 -   Reference file paired with the vcf file: Needs to be in FASTA format and be only the chromosome
--   A file containing all the IDs of the samples corresponding to the directories of the Lodestone output. Each sample ID will be on a new line.
+-   A file containing all the IDs of the samples corresponding. Each sample ID will be on a new line.
 
 ## Usage
 ```
