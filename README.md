@@ -1,7 +1,7 @@
 # Bushwalk
 
 ## Introduction
-Sometimes you have variant calls as vcf files. Bushwalk takes the vcf files and prepares the data of each sample for input into the snippy-core module of Snippy.  We're going on a bushwalk!
+Sometimes you have variant calls as vcf files. Bushwalk takes the vcf files and prepares the data of each sample for input into the snippy-core module of Snippy with the intended use to creat a multisequence alignment.  We're going on a bushwalk!
 
 ## Dependencies
 ------
