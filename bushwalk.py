@@ -133,10 +133,10 @@ for i in idlist:
     if (i in os.listdir(odir)):
         
         ######################################################
-        # copy lodestone vcf output into each sample directory
+        # copy vcf output into each sample directory
         ######################################################
         
-        #WILL HAVE TO CHANGE THIS DIRECTORY
+        #WILL HAVE TO CHANGE THIS DIRECTORY   ----- Will have to change this to have the vcf in a single directory
         
         p = subprocess.call("cp -r %s %s"%(pdir+i+'.vcf.gz', odir+i+'/'), shell=True,    stdout=subprocess.PIPE,stderr=subprocess.PIPE)
         gzip_f = Path(odir+i+'/'+i+'.vcf.gz')
